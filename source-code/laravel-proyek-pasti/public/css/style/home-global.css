@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    /* background: black; */
+    margin: 0px;
+    padding: 0px;
+}
+
+:root {
+    --size-sidebar: 300px;
+    --sidebar-background: #272932;
+    --sidebar-color: #3c8aff;
+    --sidebar-white: #dddddd;
+    --content-navbar: 70px;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    position: relative;
+    height: 100vh;
+}
+
+.wrapper > .sidebar {
+    width: var(--size-sidebar);
+    background: var(--sidebar-background);
+    color: var(--sidebar-white);
+    overflow-y: auto;
+    padding: 20px;
+}
+.wrapper > .content {
+    width: calc(100% - var(--size-sidebar));
+}
+
+.sidebar > .logo > img {
+    width: 150px;
+}
+
+.navbar-group {
+    margin-top: 10px;
+}
+.navbar-group > span {
+    font-size: 19px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    color: var(--sidebar-color);
+}
+.navbar-item {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: background 0.4s;
+    margin-top: 10px;
+}
+.navbar-item.active,
+.navbar-item:hover {
+    background: var(--sidebar-color);
+    color: white;
+}
+
+.content-navbar {
+    height: var(--content-navbar);
+}
+.navbar-logout img {
+    width: 40px;
+    height: 40px;
+}
+.content-body {
+    height: calc(100vh - var(--content-navbar));
+    overflow: auto;
+    background: #f6fafd;
+}
+
+#sidebaropen {
+    display: none;
+}
+
+#sidebaropen.active {
+    display: none;
+}
+
+/* .btn-close-1 {
+    display: none;
+} */
+/* Mobile Mode */
+@media screen and (max-width: 761px) {
+    .wrapper > .sidebar {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 0px;
+        padding: 0px;
+        margin: 0px;
+        overflow: auto;
+        transition: width 0.3s;
+    }
+    .wrapper > .content {
+        width: 100%;
+        height: 10vh;
+    }
+    .sidebar.active ~ .content {
+        margin-left: 180px;
+    }
+    .wrapper > .sidebar.active {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        padding: 10px;
+        width: 180px;
+        height: 100vh;
+    }
+    /* .btn-close-1 {
+        display: block;
+        position: absolute;
+        right: 10px;
+        color: white;
+        font-size: 20px;
+        background: none;
+        outline: none;
+        border: none;
+    } */
+    #sidebaropen {
+        display: block;
+    }
+    .title {
+        display: none;
+    }
+    /* .img-dashboard {
+        display: flex;
+        justify-content: center;
+    } */
+}
